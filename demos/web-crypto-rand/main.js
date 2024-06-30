@@ -1,10 +1,11 @@
+const MAXNUMBER = 1000
 
 /**
 * I return a random float between 0 (inclusive) and 1 (exclusive) using the Math module.
 */
 function randFloatWithMath() {
 
-	return Math.random();
+	return Math.round(Math.random() * MAXNUMBER) / MAXNUMBER;
 
 }
 
@@ -26,7 +27,7 @@ function randFloatWithCrypto() {
 	// Unlike Math.random(), crypto is giving us an integer. To feed this back into the
 	// same kind of math equation, we have to convert the integer into decimal so that we
 	// can figure out where in our range our randomness leads us.
-	return ( randomInt / ( maxInt + 1 ) );
+	return Math.round(MAXNUMBER * ( randomInt / ( maxInt + 1 ) )) / MAXNUMBER ;
 
 }
 
